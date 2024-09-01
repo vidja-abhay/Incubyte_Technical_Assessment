@@ -134,6 +134,45 @@ npm test
 - Book management functions (e.g., adding books, issuing books, returning books).
 - Error handling and validation.
 
+## Testing Summary
+
+### User Management Tests
+
+#### Add User
+- **Scenario:** Verify that a new user can be added successfully.
+- **Test Case:** When a valid user ID and name are provided, the user should be added to the system, and the response should indicate success.
+- **Edge Case:** Test for duplicate user ID to ensure the system prevents adding users with the same ID.
+
+### Book Management Tests
+
+#### Add Book
+- **Scenario:** Ensure that authorized personnel can add new books to the system.
+- **Test Case:** When a valid ISBN, title, author, and person ID are provided, the book should be added to the library, and the response should indicate success.
+- **Edge Case:** Test for duplicate ISBN to ensure the system does not allow adding the same book multiple times.
+
+### Borrow/Issue Book Tests
+
+#### Issue Book
+- **Scenario:** Validate that a book can be issued to a user.
+- **Test Case:** When a valid user ID and book ID are provided, the book's availability status should change to borrowed, and the transaction should be logged in the user's borrowing history.
+- **Edge Case:** Test issuing a book that is already borrowed to ensure the system prevents double issuance.
+
+### Return Book Tests
+
+#### Return Book
+- **Scenario:** Confirm that the system processes the return of a borrowed book.
+- **Test Case:** When a valid user ID and book ID are provided, the book's availability status should change to available, and the transaction should be closed in the user's borrowing history.
+- **Edge Case:** Test returning a book that was not borrowed by the user to ensure the system handles this error correctly.
+
+### Error Handling & Validation Tests
+- **Scenario:** Ensure that the system handles invalid inputs and other errors correctly.
+- **Test Case:** Test various scenarios with missing or incorrect data (e.g., missing user ID, invalid book ID) to verify that the system returns appropriate error messages and does not process the request.
+
+## Tools & Frameworks
+
+- **Vitest:** All tests are written and executed using the Vitest testing framework, which is known for its speed and simplicity.
+
+
 ### Test Code Example
 
 ![incubyte](https://github.com/user-attachments/assets/a3522e5e-be12-4223-a995-2513716e975c)
